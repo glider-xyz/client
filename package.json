@@ -24,6 +24,13 @@
       "pre-push": "ng build --aot true"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glider-xyz/client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/glider-xyz/client/issues"
+  },
   "keywords": [
     "meta",
     "transactions",
