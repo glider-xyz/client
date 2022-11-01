@@ -18,30 +18,30 @@ import { ethers, Signer, Contract } from ethers;
 
 // Following example is for a local test chain (like Hardhat Network)
 const gliderConfig = {
-	chainId: 31337,
-	provider: new ethers.providers.JsonRpcProvider('http://localhost:8545'),
-	forwarderContractAddress: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-	relayServerUrl:  'http://localhost:3001/relayer/send'
+  chainId: 31337,
+  provider: new ethers.providers.JsonRpcProvider('http://localhost:8545'),
+  forwarderContractAddress: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+  relayServerUrl:  'http://localhost:3001/relayer/send'
 };
 
 const SendMetaTransactionButton = ({
-	signer,
-	contract
+  signer,
+  contract
 } : {
-	signer: Signer,
-	contract: Contract,
+  signer: Signer,
+  contract: Contract,
 }) => {
-	return (
-		<button onClick={async () => {
-			// Wrap your existing ethers Signer using GliderSigner.
-			const gliderSigner = new GliderSigner(signer, gliderConfig);
-			const connectedContract = contract.connect(gliderSigner);
-			const txResponse = await contract.doSomething();
-			await txResponse.wait();
-		}}>
-		Send Transaction
-		</button>
-	);
+  return (
+    <button onClick={async () => {
+      // Wrap your existing ethers Signer using GliderSigner.
+      const gliderSigner = new GliderSigner(signer, gliderConfig);
+      const connectedContract = contract.connect(gliderSigner);
+      const txResponse = await contract.doSomething();
+      await txResponse.wait();
+    }}>
+      Send Transaction
+    </button>
+  );
 }
 
 ```
